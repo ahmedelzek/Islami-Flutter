@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_flutter/ui/screens/home/home_screen.dart';
 import 'package:islami_flutter/ui/screens/splash/splash_screen.dart';
+import 'package:islami_flutter/ui/screens/surah/surah_details_screen.dart';
 import 'package:islami_flutter/ui/utils/app_colors.dart';
 
 void main() {
@@ -13,13 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Islami Flutter',
+      title: 'Islami',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.gold),
+          primaryColor: AppColors.gold,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: AppColors.gold, primary: AppColors.gold),
           scaffoldBackgroundColor: Colors.transparent,
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: AppColors.gold,
-          ),
+              backgroundColor: AppColors.gold,
+              selectedIconTheme: IconThemeData(color: Colors.white),
+              selectedItemColor: Colors.black),
           useMaterial3: true,
           textTheme: const TextTheme(
               bodyMedium: TextStyle(fontSize: 16, color: Colors.white),
@@ -30,11 +34,24 @@ class MyApp extends StatelessWidget {
               bodySmall: TextStyle(
                   fontSize: 14,
                   color: Colors.white,
-                  fontWeight: FontWeight.w700))),
+                  fontWeight: FontWeight.w700),
+              titleMedium: TextStyle(
+                  color: AppColors.gold,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24)),
+          appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.transparent,
+              centerTitle: true,
+              iconTheme: IconThemeData(color: AppColors.gold),
+              titleTextStyle: TextStyle(
+                  color: AppColors.gold,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20))),
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),
         HomeScreen.routeName: (_) => const HomeScreen(),
+        SurahDetailsScreen.routeName: (_) => const SurahDetailsScreen(),
       },
     );
   }

@@ -9,6 +9,10 @@ abstract class AppImages {
   static const String homeBackground = "${base}home_background.png";
   static const String islamiLogo = "${base}islami_logo.png";
   static const String surahNumBackground = "${base}surah_num_background.png";
+  static const String surahTitleDecoration =
+      "${base}surah_details_decoration.png";
+  static const String surahFooterDecoration =
+      "${base}surah_details_decoration_footer.png";
 }
 
 // App Icons Class

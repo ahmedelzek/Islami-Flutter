@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_flutter/model/surah_name_list.dart';
+import 'package:islami_flutter/ui/screens/surah/surah_details_screen.dart';
 import 'package:islami_flutter/ui/utils/app_assets.dart';
 
 class SurahWidget extends StatelessWidget {
@@ -9,21 +10,27 @@ class SurahWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      child: Row(
-        children: [
-          surahNum(context, surahIndex),
-          const SizedBox(
-            width: 24,
-          ),
-          surahEnglishName(context, surahIndex),
-          const Spacer(),
-          Text(
-            QuranResource.arabicQuranSurah[surahIndex],
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ],
+    return InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(SurahDetailsScreen.routeName, arguments: surahIndex);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        child: Row(
+          children: [
+            surahNum(context, surahIndex),
+            const SizedBox(
+              width: 24,
+            ),
+            surahEnglishName(context, surahIndex),
+            const Spacer(),
+            Text(
+              QuranResource.arabicQuranSurah[surahIndex],
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ],
+        ),
       ),
     );
   }
