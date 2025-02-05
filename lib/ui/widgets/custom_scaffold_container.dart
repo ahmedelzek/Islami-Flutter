@@ -8,7 +8,7 @@ class CustomScaffoldContainer extends StatelessWidget {
 
   CustomScaffoldContainer(
       {super.key,
-      this.backgroundImage = AppAssets.homeBackground,
+      this.backgroundImage = AppImages.homeBackground,
       required this.child});
 
   @override

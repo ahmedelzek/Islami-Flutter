@@ -23,7 +23,7 @@ class SplashScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppAssets.splashBackground),
+          image: AssetImage(AppImages.splashBackground),
           fit: BoxFit.cover,
         ),
       ),
@@ -32,31 +32,31 @@ class SplashScreen extends StatelessWidget {
           top: 40,
           left: 0,
           right: 0,
-          child: Image(image: AssetImage(AppAssets.splashMosqueImg)),
+          child: Image(image: AssetImage(AppImages.splashMosqueImg)),
         ),
         const Positioned(
             top: -3,
             right: 8,
-            child: Image(image: AssetImage(AppAssets.glowImg))),
+            child: Image(image: AssetImage(AppImages.glowImg))),
         const Center(
-          child: Image(image: AssetImage(AppAssets.splashImg)),
+          child: Image(image: AssetImage(AppImages.splashImg)),
         ),
         const Positioned(
             left: 0,
             top: 215,
-            child: Image(image: AssetImage(AppAssets.starsImg))),
+            child: Image(image: AssetImage(AppImages.starsImg))),
         Positioned(
             right: 0,
             bottom: 130,
             child: Transform.flip(
                 flipX: true,
                 flipY: false,
-                child: Image.asset(AppAssets.starsImg))),
+                child: Image.asset(AppImages.starsImg))),
         Positioned(
             left: 0,
             right: 0,
             bottom: 25,
-            child: Image.asset(AppAssets.routeLogo)),
+            child: Image.asset(AppImages.routeLogo)),
         const Positioned(
             left: 0,
             right: 0,
