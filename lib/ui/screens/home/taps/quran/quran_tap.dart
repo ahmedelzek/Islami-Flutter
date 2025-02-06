@@ -4,21 +4,46 @@ import 'package:islami_flutter/ui/screens/home/taps/quran/surah_widget.dart';
 
 import '../../../../../model/surah_name_list.dart';
 
-class QuranTap extends StatelessWidget {
-  const QuranTap({super.key});
+class QuranTap extends StatefulWidget {
+  QuranTap({super.key});
+
+  @override
+  State<QuranTap> createState() => _QuranTapState();
+}
+
+class _QuranTapState extends State<QuranTap> {
+  List<int> filteredSurahIndices = List.generate(114, (index) => index);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        searchTextField(context),
+        searchTextField(context, filterSurahByText),
         Expanded(
             child: ListView.separated(
-                itemBuilder: (context, index) => SurahWidget(surahIndex: index),
+                itemBuilder: (context, index) =>
+                    SurahWidget(surahIndex: filteredSurahIndices[index]),
                 separatorBuilder: (context, index) =>
                     separatorBuilderContainer(),
-                itemCount: QuranResource.arabicQuranSurah.length))
+                itemCount: filteredSurahIndices.length))
       ],
     );
+  }
+
+  void filterSurahByText(String searchText) {
+    List<int> filteredList = [];
+    for (int i = 0; i < QuranResource.arabicQuranSurah.length; i++) {
+      if (QuranResource.arabicQuranSurah[i]
+              .toLowerCase()
+              .contains(searchText.toLowerCase()) ||
+          QuranResource.englishQuranSurah[i]
+              .toLowerCase()
+              .contains(searchText.toLowerCase())) {
+        filteredList.add(i);
+      }
+    }
+    setState(() {
+      filteredSurahIndices = filteredList;
+    });
   }
 }
