@@ -17,6 +17,8 @@ abstract class AppImages {
   static const String hadithTitleDecoration =
       "${base}hadith_card_decoration.png";
   static const String hadithFooterDecoration = "${base}hadith_card_footer.png";
+  static const String sephaBody = "${base}sepha_body.png";
+  static const String sephaHeader = "${base}sepha_header.png";
 }
 
 // App Icons Class
