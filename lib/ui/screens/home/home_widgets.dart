@@ -17,11 +17,11 @@ List<BottomNavigationBarItem> generateBottomNavItems(
 Widget homeLogo() {
   return SizedBox(
     width: double.infinity, // Takes full width
-    height: 200, // Adjust height as needed
+    height: 130, // Adjust height as needed
     child: Stack(
       alignment: Alignment.center,
       children: [
-        Positioned(top: 120, child: Image.asset(AppImages.islamiLogo)),
+        Positioned(top: 60, child: Image.asset(AppImages.islamiLogo)),
         Image.asset(AppImages.splashMosqueImg),
       ],
     ),

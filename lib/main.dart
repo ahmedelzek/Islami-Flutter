@@ -25,6 +25,11 @@ class MyApp extends StatelessWidget {
               selectedIconTheme: IconThemeData(color: Colors.white),
               selectedItemColor: Colors.black),
           useMaterial3: true,
+          cardTheme: CardTheme(
+            color: AppColors.gold,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
           textTheme: const TextTheme(
               bodyMedium: TextStyle(fontSize: 16, color: Colors.white),
               bodyLarge: TextStyle(
@@ -40,13 +45,14 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 24)),
           appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              iconTheme: IconThemeData(color: AppColors.gold),
-              titleTextStyle: TextStyle(
-                  color: AppColors.gold,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20))),
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            iconTheme: IconThemeData(color: AppColors.gold),
+            titleTextStyle: TextStyle(
+                color: AppColors.gold,
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
+          )),
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),

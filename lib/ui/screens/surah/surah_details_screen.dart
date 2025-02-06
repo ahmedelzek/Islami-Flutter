@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_flutter/model/surah_name_list.dart';
-import 'package:islami_flutter/ui/screens/surah/surah_details_wedgets.dart';
+import 'package:islami_flutter/ui/screens/surah/surah_details_widgets.dart';
 import 'package:islami_flutter/ui/utils/app_assets.dart';
-
-import '../../utils/app_colors.dart';
 
 class SurahDetailsScreen extends StatefulWidget {
   static const String routeName = "surah";
@@ -59,8 +57,7 @@ class _SurahDetailsScreenState extends State<SurahDetailsScreen> {
     );
   }
 
-  Center buildLoader() =>
-      const Center(child: CircularProgressIndicator(color: AppColors.gold));
+  Center buildLoader() => const Center(child: CircularProgressIndicator());
 
   Future<void> loadContent(int index) async {
     var fileName = "assets/files/${index + 1}.txt";
@@ -69,7 +66,9 @@ class _SurahDetailsScreenState extends State<SurahDetailsScreen> {
     for (int i = 0; i < suraLines.length; i++) {
       if (suraLines[i].isNotEmpty) suraLines[i] += "{${i + 1}}";
     }
-    suraContent = suraLines.join();
-    setState(() {});
+    await Future.delayed(const Duration(seconds: 1));
+    setState(() {
+      suraContent = suraLines.join();
+    });
   }
 }
