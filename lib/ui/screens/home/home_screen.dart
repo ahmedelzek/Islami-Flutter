@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> taps = [
-    const QuranTap(),
+    QuranTap(),
     const HadithTap(),
     const SephaTap(),
     const RadioTap(),

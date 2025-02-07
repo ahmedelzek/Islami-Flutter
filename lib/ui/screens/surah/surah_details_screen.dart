@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islami_flutter/model/surah_name_list.dart';
 import 'package:islami_flutter/ui/screens/surah/surah_details_widgets.dart';
 import 'package:islami_flutter/ui/utils/app_assets.dart';
+import 'package:islami_flutter/ui/widgets/shared_preferences_utils.dart';
 
 class SurahDetailsScreen extends StatefulWidget {
   static const String routeName = "surah";
@@ -67,6 +68,7 @@ class _SurahDetailsScreenState extends State<SurahDetailsScreen> {
       if (suraLines[i].isNotEmpty) suraLines[i] += "{${i + 1}}";
     }
     await Future.delayed(const Duration(seconds: 1));
+    getMostRecentSurah();
     setState(() {
       suraContent = suraLines.join();
     });
