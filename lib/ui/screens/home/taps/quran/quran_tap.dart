@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami_flutter/ui/screens/home/taps/quran/most_recent_card.dart';
 import 'package:islami_flutter/ui/screens/home/taps/quran/quran_tap_widgets.dart';
 import 'package:islami_flutter/ui/screens/home/taps/quran/surah_widget.dart';
 
 import '../../../../../model/surah_name_list.dart';
 import '../../../../widgets/shared_preferences_utils.dart';
+import 'most_recent_card.dart';
 
 class QuranTap extends StatefulWidget {
   QuranTap({super.key});
@@ -28,20 +28,6 @@ class _QuranTapState extends State<QuranTap> {
     return Column(
       children: [
         searchTextField(context, filterSurahByText),
-        Visibility(
-          visible: mostRecentSurahIndices.isNotEmpty,
-          child: SizedBox(
-            height: 150,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: mostRecentSurahIndices.length,
-                itemBuilder: (context, index) {
-                  return MostRecentCard(
-                    surahIndex: mostRecentSurahIndices[index],
-                  );
-                }),
-          ),
-        ),
         Visibility(
           visible: mostRecentSurahIndices.isNotEmpty,
           child: SizedBox(
