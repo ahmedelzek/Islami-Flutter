@@ -42,6 +42,20 @@ class _QuranTapState extends State<QuranTap> {
                 }),
           ),
         ),
+        Visibility(
+          visible: mostRecentSurahIndices.isNotEmpty,
+          child: SizedBox(
+            height: 150,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: mostRecentSurahIndices.length,
+                itemBuilder: (context, index) {
+                  return MostRecentCard(
+                    surahIndex: mostRecentSurahIndices[index],
+                  );
+                }),
+          ),
+        ),
         Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) =>
