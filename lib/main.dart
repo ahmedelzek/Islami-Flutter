@@ -31,7 +31,10 @@ class MyApp extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
           textTheme: const TextTheme(
-              bodyMedium: TextStyle(fontSize: 16, color: Colors.white),
+              bodyMedium: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
               bodyLarge: TextStyle(
                   fontSize: 20,
                   color: Colors.white,

@@ -3,6 +3,8 @@ import 'package:islami_flutter/model/surah_name_list.dart';
 import 'package:islami_flutter/ui/screens/surah/surah_details_screen.dart';
 import 'package:islami_flutter/ui/utils/app_assets.dart';
 
+import '../../../../widgets/shared_preferences_utils.dart';
+
 class SurahWidget extends StatelessWidget {
   int surahIndex;
 
@@ -14,6 +16,7 @@ class SurahWidget extends StatelessWidget {
       onTap: () {
         Navigator.of(context)
             .pushNamed(SurahDetailsScreen.routeName, arguments: surahIndex);
+        updateMostRecentSurah(surahIndex);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
