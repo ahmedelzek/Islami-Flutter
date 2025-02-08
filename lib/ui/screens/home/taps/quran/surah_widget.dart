@@ -7,16 +7,19 @@ import '../../../../widgets/shared_preferences_utils.dart';
 
 class SurahWidget extends StatelessWidget {
   int surahIndex;
+  VoidCallback onSurahSelected;
 
-  SurahWidget({required this.surahIndex, super.key});
+  SurahWidget(
+      {required this.surahIndex, required this.onSurahSelected, super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async {
         Navigator.of(context)
             .pushNamed(SurahDetailsScreen.routeName, arguments: surahIndex);
-        updateMostRecentSurah(surahIndex);
+        await updateMostRecentSurah(surahIndex);
+        onSurahSelected();
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
