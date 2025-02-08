@@ -24,6 +24,12 @@ class _QuranTapState extends State<QuranTap> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getSavedMostRecentSurah();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -44,8 +50,10 @@ class _QuranTapState extends State<QuranTap> {
         ),
         Expanded(
             child: ListView.separated(
-                itemBuilder: (context, index) =>
-                    SurahWidget(surahIndex: filteredSurahIndices[index]),
+                itemBuilder: (context, index) => SurahWidget(
+                      surahIndex: filteredSurahIndices[index],
+                      onSurahSelected: () => getSavedMostRecentSurah(),
+                    ),
                 separatorBuilder: (context, index) =>
                     separatorBuilderContainer(),
                 itemCount: filteredSurahIndices.length))
@@ -55,9 +63,11 @@ class _QuranTapState extends State<QuranTap> {
 
   void getSavedMostRecentSurah() async {
     var listIndices = await getMostRecentSurah();
-    setState(() {
-      mostRecentSurahIndices = listIndices;
-    });
+    if (mounted) {
+      setState(() {
+        mostRecentSurahIndices = listIndices;
+      });
+    }
   }
 
   void filterSurahByText(String searchText) {

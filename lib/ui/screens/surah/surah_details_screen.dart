@@ -68,7 +68,7 @@ class _SurahDetailsScreenState extends State<SurahDetailsScreen> {
       if (suraLines[i].isNotEmpty) suraLines[i] += "{${i + 1}}";
     }
     await Future.delayed(const Duration(seconds: 1));
-    getMostRecentSurah();
+    await getMostRecentSurah();
     setState(() {
       suraContent = suraLines.join();
     });
