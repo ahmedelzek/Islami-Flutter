@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islami_flutter/ui/utils/app_colors.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/app_assets.dart';
+import '../../widgets/shared_preferences_utils.dart';
 import '../home/home_screen.dart';
+import '../onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = "splash";
@@ -10,8 +13,15 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    Future.delayed(const Duration(seconds: 2), () async {
+      final isOnboardingCompleted = await getOnboardingCompleted();
+      // Navigate to the appropriate screen
+      Navigator.pushReplacementNamed(
+        context,
+        isOnboardingCompleted
+            ? HomeScreen.routeName
+            : OnboardingScreen.routeName,
+      );
     });
     return Scaffold(
       appBar: null,
