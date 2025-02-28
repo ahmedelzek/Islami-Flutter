@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_flutter/ui/screens/home/home_screen.dart';
+import 'package:islami_flutter/ui/screens/onboarding/onboarding_screen.dart';
 import 'package:islami_flutter/ui/screens/splash/splash_screen.dart';
 import 'package:islami_flutter/ui/screens/surah/surah_details_screen.dart';
 import 'package:islami_flutter/ui/utils/app_colors.dart';
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (_) => const SplashScreen(),
         HomeScreen.routeName: (_) => const HomeScreen(),
         SurahDetailsScreen.routeName: (_) => const SurahDetailsScreen(),
+        OnboardingScreen.routeName: (_) => const OnboardingScreen(),
       },
     );
   }

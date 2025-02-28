@@ -20,6 +20,11 @@ abstract class AppImages {
   static const String sephaBody = "${base}sepha_body.png";
   static const String sephaHeader = "${base}sepha_header.png";
   static const String quranCardDecoration = "${base}quran_card_decoration.png";
+  static const String onBoardingPage1 = "${base}onboarding_page1.png";
+  static const String onBoardingPage2 = "${base}onboarding_page2.png";
+  static const String onBoardingPage3 = "${base}onboarding_page3.png";
+  static const String onBoardingPage4 = "${base}onboarding_page4.png";
+  static const String onBoardingPage5 = "${base}onboarding_page5.png";
 }
 
 // App Icons Class
@@ -30,4 +35,21 @@ abstract class AppIcons {
   static const String hadithIcon = "${base}ic_hadith.svg";
   static const String sephaIcon = "${base}ic_sepha.svg";
   static const String radioIcon = "${base}ic_radio.svg";
+}
+
+abstract class OnBoardingTexts {
+  static const String onboardingTitle1 = "Welcome To Islami App";
+  static const String onboardingTitle2 = "Welcome To Islami";
+  static const String onboardingTitle3 = "Reading the Quran";
+  static const String onboardingTitle4 = "Bearish";
+  static const String onboardingTitle5 = "Holy Quran Radio";
+  static const String onboardingDescription1 = "";
+  static const String onboardingDescription2 =
+      "We Are Very Excited To Have You In Our Community";
+  static const String onboardingDescription3 =
+      "Read, and your Lord is the Most Generous";
+  static const String onboardingDescription4 =
+      "Praise the name of your Lord, the Most High";
+  static const String onboardingDescription5 =
+      "You can listen to the Holy Quran Radio through the application for free and easily";
 }
